@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6770ce982fa5c84fb9b152fffb40983, type: 3}
   m_Name: K_WizardStats.Default
   m_EditorClassIdentifier: 
-  Speed: 5
-  Acceleration: 6
-  Deceleration: 4
+  Speed: 6.8
+  Acceleration: 20
+  Deceleration: 25.3
   MaxMana: 25
   ManaRegenRate: 2
   ManaDepletionRate: 2
   BasicAttackDamage: 0
+  BraceForImpactDuration: 0.5
+  BraceForImpactCooldown: 0.5

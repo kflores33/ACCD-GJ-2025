@@ -14,8 +14,9 @@ public class K_WizardBehavior : MonoBehaviour
     Rigidbody _rb;
     Collider _col;
 
-    //public Vector3 MaxZPosition;
-    //public Vector3 MinZPosition;
+    Coroutine _braceForImpactCoroutine;
+
+    float _braceForImpactCD = 0;
 
     Vector3 _velocity = Vector3.zero;
 
@@ -63,22 +64,22 @@ public class K_WizardBehavior : MonoBehaviour
     }
     void UpdateStrong()
     {
+        if (_braceForImpactCD >= 0) _braceForImpactCD -= Time.deltaTime; // decrement cooldown for bracing for impact
+
         // Logic for strong state
         if (_currentMana >= 0) // if current mana is greater than or equal to 0
         {
             _currentMana += wizardStats.ManaDepletionRate * Time.deltaTime; // deplete mana over time
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !(_bracedForImpact)) // if input to brace for impact is pressed
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !(_bracedForImpact) && _braceForImpactCD <= 0) // if input to brace for impact is pressed
         {
             // brace for impact
-            _bracedForImpact = true;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && _bracedForImpact) // if input to unbrace for impact is pressed
-        {
-            // unbrace for impact
-            _bracedForImpact = false;
-        }
+            _braceForImpactCoroutine = StartCoroutine(BraceForImpact());
+        }        
+
+        // if enemy hits while braced for impact, reduce cooldown of ability to 0 and recover mana
+        // else, recover half of the mana the player would have gained if braced for impact
 
         if (Input.GetKeyDown(KeyCode.Space)) // if input to switch state is pressed
         {
@@ -88,6 +89,20 @@ public class K_WizardBehavior : MonoBehaviour
         }
     }
 
+    private IEnumerator BraceForImpact()
+    {
+        _bracedForImpact = true;
+        Debug.Log("Bracing for impact");
+
+        yield return new WaitForSeconds(wizardStats.BraceForImpactDuration);
+
+        _braceForImpactCD = wizardStats.BraceForImpactCooldown; // set cooldown for bracing for impact
+
+        Debug.Log("time's up, unbraced");
+        _bracedForImpact = false;
+
+        _braceForImpactCoroutine = null;
+    }
     private void FixedUpdate()
     {
         float inputHorizontal = Input.GetAxis("Horizontal");
@@ -119,6 +134,30 @@ public class K_WizardBehavior : MonoBehaviour
         //if (transform.position.z >= MaxZPosition.z || transform.position.z <= MinZPosition.z) { _velocity = Vector3.zero; return; } // set velocity to zero if above max vertical position
 
         ApplyMovement();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //if (collision.gameObject.GetComponent</*enemy script here*/>() != null) // if braced for impact and collides with enemy
+        //{
+        //    if (_bracedForImpact) 
+        //    { 
+        //        // reduce cooldown of ability to 0 and recover mana
+        //        Debug.Log("Reduced cooldown and recovered mana");
+        //        _currentMana += manaGain; // example mana gain
+
+        //        // cancel coroutine
+        //        StopCoroutine(_braceForImpactCoroutine);
+        //        _bracedForImpact = false;
+        //        _braceForImpactCoroutine = null;
+        //    }
+        //}
+
+        if(collision.gameObject.GetComponent<C_Arrow>() != null)
+        {
+            // take damage
+            Debug.Log("ouchie zawa!!");
+        }
     }
 
     private void ApplyMovement() => _rb.linearVelocity = _velocity;

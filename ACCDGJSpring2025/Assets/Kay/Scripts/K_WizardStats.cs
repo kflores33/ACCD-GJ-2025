@@ -13,6 +13,8 @@ public class K_WizardStats : ScriptableObject
     [Tooltip("Sets the wizard's mana regeneration rate")] public float ManaRegenRate;
     [Tooltip("Sets the rate at which the wizard's mana depletes")] public float ManaDepletionRate;
 
-    [Header("Misc")]
+    [Header("Player Actions")]
     [Tooltip("Amount of damage dealt by the wizard's basic attack")] public float BasicAttackDamage;
+    [Tooltip("Duration of time that 'Brace for Impact' lasts for")]public float BraceForImpactDuration;
+    [Tooltip("Length of cooldown for 'Brace for Impact'")]public float BraceForImpactCooldown;
 }
