@@ -328,30 +328,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2023878727010006692, guid: d6ce282f3f745d849a4e6452cdf88676, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5267525238574055052, guid: d6ce282f3f745d849a4e6452cdf88676, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1677792092}
-    - target: {fileID: 5267525238574055052, guid: d6ce282f3f745d849a4e6452cdf88676, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437406055971440547, guid: d6ce282f3f745d849a4e6452cdf88676, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6114492652218415861, guid: d6ce282f3f745d849a4e6452cdf88676, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1677792092}
-    - target: {fileID: 6114492652218415861, guid: d6ce282f3f745d849a4e6452cdf88676, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartGame
-      objectReference: {fileID: 0}
     - target: {fileID: 8998121833969367810, guid: d6ce282f3f745d849a4e6452cdf88676, type: 3}
       propertyPath: m_Name
       value: S_Canvas (1)
