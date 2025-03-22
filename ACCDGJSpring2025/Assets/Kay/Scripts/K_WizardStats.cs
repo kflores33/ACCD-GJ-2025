@@ -11,7 +11,10 @@ public class K_WizardStats : ScriptableObject
     [Header("Mana")]
     [Tooltip("Sets the wizard's max mana")] public float MaxMana;
     [Tooltip("Sets the wizard's mana regeneration rate")] public float ManaRegenRate;
+    [Tooltip("Sets the wizard's mana regeneration delay")] public float ManaRegenDelay;
+
     [Tooltip("Sets the rate at which the wizard's mana depletes")] public float ManaDepletionRate;
+    [Tooltip("Sets the delay before mana starts depleting")] public float ManaDepletionDelay;
 
     [Header("Player Actions")]
     [Tooltip("Amount of damage dealt by the wizard's basic attack")] public float BasicAttackDamage;

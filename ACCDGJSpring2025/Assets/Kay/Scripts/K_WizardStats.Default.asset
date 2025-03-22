@@ -17,7 +17,9 @@ MonoBehaviour:
   Deceleration: 25.3
   MaxMana: 25
   ManaRegenRate: 2
+  ManaRegenDelay: 0.75
   ManaDepletionRate: 2
+  ManaDepletionDelay: 0.75
   BasicAttackDamage: 0
   BraceForImpactDuration: 0.5
   BraceForImpactCooldown: 0.5
