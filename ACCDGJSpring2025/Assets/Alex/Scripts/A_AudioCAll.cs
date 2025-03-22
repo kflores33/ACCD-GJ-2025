@@ -17,6 +17,7 @@ public class A_AudioCAll : MonoBehaviour
         }
     }
 
+    //Use this to replace the SFXfunction() in the instruction
     public void Musicfunction(AudioClip clip)
     {
         music.PlayOneShot(clip);
@@ -27,6 +28,7 @@ public class A_AudioCAll : MonoBehaviour
         sFX.PlayOneShot(clip);
     }
 
+    //Use this to replace the SFXfunction() in the instruction
     public void Dialogfunction(AudioClip clip)
     {
         dialog.PlayOneShot(clip);

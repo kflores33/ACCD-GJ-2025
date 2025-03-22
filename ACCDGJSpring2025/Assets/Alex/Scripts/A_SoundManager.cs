@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class A_SoundManager : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    private AudioMixer audioMixer;
 
     private float minValueVolume;
-    public Slider masterSlider;
-    public Slider musicSlider;
-    public Slider SFXSlider;
-    public Slider dialogSlider;
+    private Slider masterSlider;
+    private Slider musicSlider;
+    private Slider SFXSlider;
+    private Slider dialogSlider;
 
     const string mixer_Master = "MasterVolume";
     const string mixer_Music = "MusicVolume";
@@ -18,6 +18,13 @@ public class A_SoundManager : MonoBehaviour
     
     void Awake()
     {
+        audioMixer = Resources.Load<AudioMixer>("Mixer");
+
+        masterSlider = GameObject.Find("MasterSlider").GetComponent<Slider>();
+        musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
+        SFXSlider = GameObject.Find("SFXSlider").GetComponent<Slider>();
+        dialogSlider = GameObject.Find("DialogSlider").GetComponent<Slider>();
+
         minValueVolume = 0.0001f;
 
         masterSlider.minValue = minValueVolume;
