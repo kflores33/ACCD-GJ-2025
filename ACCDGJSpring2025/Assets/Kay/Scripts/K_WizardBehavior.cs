@@ -6,7 +6,7 @@ public class K_WizardBehavior : MonoBehaviour
 {
     [SerializeField] K_WizardStats wizardStats;
 
-    float _currentMana;
+    [SerializeField]float _currentMana;
     public float manaGain = 5;
 
     bool _bracedForImpact = false;
@@ -54,6 +54,7 @@ public class K_WizardBehavior : MonoBehaviour
         { 
             _currentMana += wizardStats.ManaRegenRate * Time.deltaTime; // regenerate mana over time
         }
+        else _currentMana = wizardStats.MaxMana; // if current mana is greater than max mana, set it to max mana
 
         if (Input.GetKeyDown(KeyCode.Space) && _currentMana >= 5) // if input to switch state is pressed and there is enough mana
         {
@@ -69,8 +70,9 @@ public class K_WizardBehavior : MonoBehaviour
         // Logic for strong state
         if (_currentMana >= 0) // if current mana is greater than or equal to 0
         {
-            _currentMana += wizardStats.ManaDepletionRate * Time.deltaTime; // deplete mana over time
+            _currentMana -= wizardStats.ManaDepletionRate * Time.deltaTime; // deplete mana over time
         }
+        else _currentMana = 0;
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !(_bracedForImpact) && _braceForImpactCD <= 0) // if input to brace for impact is pressed
         {
@@ -103,6 +105,12 @@ public class K_WizardBehavior : MonoBehaviour
 
         _braceForImpactCoroutine = null;
     }
+
+    private void TakeDamage(float dmg)
+    {
+        _currentMana -= dmg; // reduce current mana by damage taken
+    }
+
     private void FixedUpdate()
     {
         float inputHorizontal = Input.GetAxis("Horizontal");
@@ -156,6 +164,7 @@ public class K_WizardBehavior : MonoBehaviour
         if(collision.gameObject.GetComponent<C_Arrow>() != null)
         {
             // take damage
+            TakeDamage(5); // example damage value
             Debug.Log("ouchie zawa!!");
         }
     }
