@@ -172,13 +172,20 @@ public class K_WizardBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<C_Enemy>() != null) // if braced for impact and collides with enemy
+        C_Enemy enemyCol = collision.gameObject.GetComponent<C_Enemy>();
+        if (enemyCol != null) // if braced for impact and collides with enemy
         {
             if (_bracedForImpact)
             {
                 // reduce cooldown of ability to 0 and recover mana
                 Debug.Log("Reduced cooldown and recovered mana");
-                _currentMana += manaGain; // example mana gain, replace with enemy's mana gain value
+
+                // do damage to monster?
+
+                if (enemyCol.isDying)
+                {
+                    _currentMana += enemyCol.monsterReward;
+                }
 
                 // cancel coroutine
                 StopCoroutine(_braceForImpactCoroutine);
@@ -187,13 +194,17 @@ public class K_WizardBehavior : MonoBehaviour
             }
             else
             {
-                _currentMana += (manaGain / 2);
+                if (enemyCol.isDying)
+                {
+                    _currentMana += (enemyCol.monsterReward/2);
+                }
             }
 
             _gameManager.AddToStat(enemiesKilled: 1);
         }
 
-        if (collision.gameObject.GetComponent<C_Arrow>() != null)
+        C_Arrow arrowCol = collision.gameObject.GetComponent<C_Arrow>();
+        if (arrowCol != null)
         {
             // take damage
             TakeDamage(5); // example damage value

@@ -132,6 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 1160213309516274786, guid: afa3aeffe4d99cc4aa68941bf9f2f6e8, type: 3}
-  enemyPrefab: {fileID: 5802303320375292992, guid: a0159de639cb3c14a968330196c31b2e, type: 3}
+  shrimpyPrefab: {fileID: 5802303320375292992, guid: a0159de639cb3c14a968330196c31b2e, type: 3}
+  midPrefab: {fileID: 5802303320375292992, guid: f1e67209a05a335438448a713345186e, type: 3}
+  hypePrefab: {fileID: 5802303320375292992, guid: 7f5be8c62f72d5b45a344cf14b34fd90, type: 3}
   maxRange: 12
   minRange: -5
+  monsterSize: 0
