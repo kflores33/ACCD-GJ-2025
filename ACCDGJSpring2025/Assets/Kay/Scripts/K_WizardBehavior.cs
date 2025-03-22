@@ -10,11 +10,14 @@ public class K_WizardBehavior : MonoBehaviour
     public float manaGain = 5;
 
     bool _bracedForImpact = false;
+    bool _mustDelay = true;
+    bool _canDepleteRegen = false;  
 
     Rigidbody _rb;
     Collider _col;
 
     Coroutine _braceForImpactCoroutine;
+    Coroutine _delayCoroutine;
 
     float _braceForImpactCD = 0;
 
@@ -51,8 +54,10 @@ public class K_WizardBehavior : MonoBehaviour
     {
         // Logic for weak state
         if (_currentMana < wizardStats.MaxMana) // if current mana is less than max mana
-        { 
-            _currentMana += wizardStats.ManaRegenRate * Time.deltaTime; // regenerate mana over time
+        {
+            if (_mustDelay) { _delayCoroutine = StartCoroutine(Delay(wizardStats.ManaRegenDelay)); } // if can delay, wait for delay time
+            
+            if (_canDepleteRegen)_currentMana += wizardStats.ManaRegenRate * Time.deltaTime; // regenerate mana over time
         }
         else _currentMana = wizardStats.MaxMana; // if current mana is greater than max mana, set it to max mana
 
@@ -60,6 +65,8 @@ public class K_WizardBehavior : MonoBehaviour
         {
             // switch animation state
             Debug.Log("Switching to strong state");
+            _mustDelay = true;
+
             CurrentState = WizardStates.Strong;
         }
     }
@@ -68,9 +75,11 @@ public class K_WizardBehavior : MonoBehaviour
         if (_braceForImpactCD >= 0) _braceForImpactCD -= Time.deltaTime; // decrement cooldown for bracing for impact
 
         // Logic for strong state
-        if (_currentMana >= 0) // if current mana is greater than or equal to 0
+        if (_currentMana >= 0) // if current mana is greater than or equal to 0...
         {
-            _currentMana -= wizardStats.ManaDepletionRate * Time.deltaTime; // deplete mana over time
+            if (_mustDelay) { _delayCoroutine = StartCoroutine(Delay(wizardStats.ManaDepletionDelay)); } // if can delay, wait for delay time
+
+            if (_canDepleteRegen) _currentMana -= wizardStats.ManaDepletionRate * Time.deltaTime; // deplete mana over time
         }
         else _currentMana = 0;
 
@@ -83,12 +92,26 @@ public class K_WizardBehavior : MonoBehaviour
         // if enemy hits while braced for impact, reduce cooldown of ability to 0 and recover mana
         // else, recover half of the mana the player would have gained if braced for impact
 
-        if (Input.GetKeyDown(KeyCode.Space)) // if input to switch state is pressed
+        if (Input.GetKeyDown(KeyCode.Space) || _currentMana < 1) // if input to switch state is pressed
         {
             // switch animation state
             Debug.Log("Switching to weak state");
+            _mustDelay = true;
+
             CurrentState = WizardStates.Weak;
         }
+    }
+
+    private IEnumerator Delay(float time)
+    {
+        _canDepleteRegen = false; // stop mana regen while waiting for delay
+        yield return new WaitForSeconds(time);
+
+        _mustDelay = false;
+        _canDepleteRegen = true;
+
+        //StopCoroutine(_delayCoroutine);
+        _delayCoroutine = null;
     }
 
     private IEnumerator BraceForImpact()
@@ -165,6 +188,8 @@ public class K_WizardBehavior : MonoBehaviour
         {
             // take damage
             TakeDamage(5); // example damage value
+            _delayCoroutine = StartCoroutine(Delay(wizardStats.ManaRegenDelay));
+
             Debug.Log("ouchie zawa!!");
         }
     }

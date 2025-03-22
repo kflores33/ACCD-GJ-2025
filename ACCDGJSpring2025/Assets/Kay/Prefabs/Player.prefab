@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wizardStats: {fileID: 11400000, guid: 6bdbde367fd515b4395b8547bc441e4c, type: 2}
+  _currentMana: 5
   manaGain: 5
   CurrentState: 0
 --- !u!54 &4245447650474347496
