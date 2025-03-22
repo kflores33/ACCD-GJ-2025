@@ -169,22 +169,26 @@ public class K_WizardBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if (collision.gameObject.GetComponent</*enemy script here*/>() != null) // if braced for impact and collides with enemy
-        //{
-        //    if (_bracedForImpact) 
-        //    { 
-        //        // reduce cooldown of ability to 0 and recover mana
-        //        Debug.Log("Reduced cooldown and recovered mana");
-        //        _currentMana += manaGain; // example mana gain
+        if (collision.gameObject.GetComponent<C_Enemy>() != null) // if braced for impact and collides with enemy
+        {
+            if (_bracedForImpact)
+            {
+                // reduce cooldown of ability to 0 and recover mana
+                Debug.Log("Reduced cooldown and recovered mana");
+                _currentMana += manaGain; // example mana gain, replace with enemy's mana gain value
 
-        //        // cancel coroutine
-        //        StopCoroutine(_braceForImpactCoroutine);
-        //        _bracedForImpact = false;
-        //        _braceForImpactCoroutine = null;
-        //    }
-        //}
+                // cancel coroutine
+                StopCoroutine(_braceForImpactCoroutine);
+                _bracedForImpact = false;
+                _braceForImpactCoroutine = null;
+            }
+            else
+            {
+                _currentMana += (manaGain / 2);
+            }
+        }
 
-        if(collision.gameObject.GetComponent<C_Arrow>() != null)
+        if (collision.gameObject.GetComponent<C_Arrow>() != null)
         {
             // take damage
             TakeDamage(5); // example damage value
