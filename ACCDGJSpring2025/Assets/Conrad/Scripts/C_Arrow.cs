@@ -4,17 +4,23 @@ public class C_Arrow : MonoBehaviour
 {
     public PlayerMockup playerScript;
     public C_GameManagerMockup GMScript;
+
+    public K_GameManager k_GameManager; // added my game manager script, but yours should still work!
+
     public float arrowSpeed;
     public bool isDying;
 
     private void Awake()
     {
         GMScript = FindFirstObjectByType<C_GameManagerMockup>();
+        k_GameManager = FindFirstObjectByType<K_GameManager>();
     }
     //Move arrow forwards at the rate determined by the game manager
     void Update()
     {
-        arrowSpeed = GMScript.arrowSpeed;
+        if (GMScript != null) arrowSpeed = GMScript.arrowSpeed;
+        else if(k_GameManager != null) arrowSpeed = k_GameManager.arrowSpeed;
+
         this.transform.position = new Vector3(transform.position.x - arrowSpeed * Time.deltaTime, transform.position.y, transform.position.z);
     }
 
@@ -28,7 +34,7 @@ public class C_Arrow : MonoBehaviour
             {
                 isDying = true;
                 Debug.Log("Hit Player");
-                GMScript.timesHitByArrow++;
+                if (GMScript != null) GMScript.timesHitByArrow++;
                 Destroy(this.gameObject);
             }
         }

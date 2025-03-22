@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe8981cab0f80743bba40aebf6df3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowSpeed: 10
+  enemySpeed: 10
+  spawnSpeedMultiplier: 1
   _currentScore: 0
   _enemyKillMultiplier: 10
   _timeSurvivedMultiplier: 1

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a5153851b51374f9912229b383f56a, type: 3}
-  m_Name: ShrimpyMonster
+  m_Name: MidMonster
   m_EditorClassIdentifier: 
-  enemyName: Shrimpy
-  enemySprite: {fileID: 21300000, guid: 0c46666e634997d4eac89b44246220db, type: 3}
-  enemyReward: 30
-  enemyDamage: 10
-  enemySize: 0.5
+  enemyName: Mid
+  enemySprite: {fileID: 21300000, guid: 10cfc10b24f76bb4dba9008da7c10037, type: 3}
+  enemyReward: 35
+  enemyDamage: 15
+  enemySize: 1

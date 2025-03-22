@@ -25,11 +25,13 @@ public class C_EnemySpawnScript : MonoBehaviour
 
     public void SpawnArrow()
     {
+        this.transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(minRange, maxRange));
         Instantiate(arrowPrefab,this.transform.position,Quaternion.identity);
     }
 
     public void SpawnEnemy()
     {
+        this.transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(minRange, maxRange));
         monsterSize = Random.Range(1,4);
         if (monsterSize == 1)
         {
