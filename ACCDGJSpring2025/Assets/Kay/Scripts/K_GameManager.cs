@@ -43,7 +43,11 @@ public class K_GameManager : MonoBehaviour
         if (_wizardBehavior.CurrentState == K_WizardBehavior.WizardStates.Weak)
         {
             // Logic for when the wizard is weak
-            arrowSpeed = arrowSpeed + Time.deltaTime / 2;
+            // Conrad: Introduced hard limit to arrow speed to prevent unreactable arrows
+            if (arrowSpeed < 20)
+            {
+                arrowSpeed = arrowSpeed + Time.deltaTime / 2;
+            }
             // like...every so often, spawn an arrow
 
             if(_enemySpawnScript == null) return ;
@@ -56,7 +60,11 @@ public class K_GameManager : MonoBehaviour
         else if (_wizardBehavior.CurrentState == K_WizardBehavior.WizardStates.Strong)
         {
             // Logic for when the wizard is strong
-            enemySpeed = enemySpeed + Time.deltaTime / 2;
+            // Conrad: Introduced hard limit to enemy speed to prevent uncatchable foes
+            if (enemySpeed < 20)
+            {
+                enemySpeed = enemySpeed + Time.deltaTime / 2;
+            }
             // every so often, spawn an enemy
 
             if (_enemySpawnScript == null) return;

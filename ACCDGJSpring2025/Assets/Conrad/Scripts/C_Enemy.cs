@@ -5,8 +5,9 @@ public class C_Enemy : MonoBehaviour
 {
     public PlayerMockup playerScript;
     public C_GameManagerMockup GMScript;
+    public K_WizardBehavior K_Wiz;
 
-    public K_GameManager k_GameManager; // added my game manager script, but yours should still work!
+    public K_GameManager k_GM; // added my game manager script, but yours should still work!
 
     public float monsterSpeed;
     public bool isDying;
@@ -20,7 +21,7 @@ public class C_Enemy : MonoBehaviour
     public void Awake()
     {
         GMScript = FindFirstObjectByType<C_GameManagerMockup>();
-        k_GameManager = FindFirstObjectByType<K_GameManager>();
+        k_GM = FindFirstObjectByType<K_GameManager>();
         monsterSize.transform.localScale = new Vector3(MonsterSO.enemySize, MonsterSO.enemySize, MonsterSO.enemySize);
         monsterReward = MonsterSO.enemyReward;
         monsterSprite = MonsterSO.enemySprite;
@@ -29,15 +30,15 @@ public class C_Enemy : MonoBehaviour
 
     public void Update()
     {
-        if(GMScript != null) monsterSpeed = GMScript.enemySpeed;
-        else if (k_GameManager != null) monsterSpeed = k_GameManager.enemySpeed;
+        if(k_GM != null) monsterSpeed = k_GM.enemySpeed;
+        //else if (k_GameManager != null) monsterSpeed = k_GameManager.enemySpeed;
         this.transform.position = new Vector3(transform.position.x - monsterSpeed * Time.deltaTime, transform.position.y, transform.position.z);
     }
 
     private void OnCollisionEnter(Collision col)
     {
-        playerScript = col.gameObject.GetComponent<PlayerMockup>();
-        if (playerScript != null)
+        K_Wiz = col.gameObject.GetComponent<K_WizardBehavior>();
+        if (K_Wiz != null)
         {
             if (!isDying)
             {

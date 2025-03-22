@@ -5,7 +5,7 @@ public class C_Arrow : MonoBehaviour
     public PlayerMockup playerScript;
     public C_GameManagerMockup GMScript;
 
-    public K_GameManager k_GameManager; // added my game manager script, but yours should still work!
+    public K_GameManager k_GM; // added my game manager script, but yours should still work!
 
     public float arrowSpeed;
     public bool isDying;
@@ -13,13 +13,13 @@ public class C_Arrow : MonoBehaviour
     private void Awake()
     {
         GMScript = FindFirstObjectByType<C_GameManagerMockup>();
-        k_GameManager = FindFirstObjectByType<K_GameManager>();
+        k_GM = FindFirstObjectByType<K_GameManager>();
     }
     //Move arrow forwards at the rate determined by the game manager
     void Update()
     {
-        if (GMScript != null) arrowSpeed = GMScript.arrowSpeed;
-        else if(k_GameManager != null) arrowSpeed = k_GameManager.arrowSpeed;
+        if (k_GM != null) arrowSpeed = k_GM.arrowSpeed;
+        //else if(k_GameManager != null) arrowSpeed = k_GameManager.arrowSpeed;
 
         this.transform.position = new Vector3(transform.position.x - arrowSpeed * Time.deltaTime, transform.position.y, transform.position.z);
     }

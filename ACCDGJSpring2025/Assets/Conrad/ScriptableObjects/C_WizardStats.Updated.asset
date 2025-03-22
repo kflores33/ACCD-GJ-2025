@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6770ce982fa5c84fb9b152fffb40983, type: 3}
+  m_Name: C_WizardStats.Updated
+  m_EditorClassIdentifier: 
+  Speed: 23.2
+  Acceleration: 80
+  Deceleration: 400
+  MaxMana: 25
+  ManaRegenRate: 2
+  ManaRegenDelay: 0.75
+  ManaDepletionRate: 2
+  ManaDepletionDelay: 0.75
+  BasicAttackDamage: 0
+  BraceForImpactDuration: 0.5
+  BraceForImpactCooldown: 0.5
