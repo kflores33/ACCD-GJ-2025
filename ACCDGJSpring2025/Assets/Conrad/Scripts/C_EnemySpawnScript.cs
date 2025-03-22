@@ -3,6 +3,7 @@ using UnityEngine;
 public class C_EnemySpawnScript : MonoBehaviour
 {
     public GameObject arrowPrefab;
+    public GameObject enemyPrefab;
     public float maxRange;
     public float minRange;
     public void Update()
@@ -12,15 +13,20 @@ public class C_EnemySpawnScript : MonoBehaviour
             this.transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(minRange,maxRange));
             SpawnArrow();
         }
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             this.transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(minRange, maxRange));
-            SpawnArrow();
+            SpawnEnemy();
         }
     }
 
     public void SpawnArrow()
     {
         Instantiate(arrowPrefab,this.transform.position,Quaternion.identity);
+    }
+
+    public void SpawnEnemy()
+    {
+        Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
     }
 }

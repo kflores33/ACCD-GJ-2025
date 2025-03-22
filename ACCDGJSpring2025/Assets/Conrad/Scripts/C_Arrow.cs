@@ -6,16 +6,19 @@ public class C_Arrow : MonoBehaviour
     public C_GameManagerMockup GMScript;
     public float arrowSpeed;
     public bool isDying;
+
     private void Awake()
     {
-        GMScript = FindObjectOfType<C_GameManagerMockup>();
+        GMScript = FindFirstObjectByType<C_GameManagerMockup>();
     }
+    //Move arrow forwards at the rate determined by the game manager
     void Update()
     {
         arrowSpeed = GMScript.arrowSpeed;
         this.transform.position = new Vector3(transform.position.x - arrowSpeed * Time.deltaTime, transform.position.y, transform.position.z);
     }
 
+    //if the player is hit, 
     private void OnCollisionEnter(Collision col)
     {
         playerScript = col.gameObject.GetComponent<PlayerMockup>();

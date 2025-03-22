@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timesHitByArrow: 0
   arrowSpeed: 10
-  enemySpeed: 0
+  enemySpeed: 10
   numberOfKilledEnemies: 0
   isWeak: 0

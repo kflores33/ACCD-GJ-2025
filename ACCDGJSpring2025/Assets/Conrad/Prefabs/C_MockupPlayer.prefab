@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7990714074782052879}
   - component: {fileID: 6391518246364989691}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: C_DropShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2050620099130738067}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.007, y: -0.437, z: -0.164}
+  m_LocalPosition: {x: 0.007, y: -0.418, z: -0.164}
   m_LocalScale: {x: 0.16031, y: 0.16031, z: 0.16031}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3280451717441905513}
   - component: {fileID: 2665996600494669934}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: C_PlayerMockup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,8 +237,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.25, y: 1, z: 1.6}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.25, y: 1, z: 1.78}
+  m_Center: {x: 0, y: 0, z: -0.14}
 --- !u!114 &5977198026527182143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1773a325a2ef254ca911c6b2bc73029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GMMockup: {fileID: 0}
   playSpeed: 20
 --- !u!54 &2084252926564078814
 Rigidbody:
@@ -291,7 +292,7 @@ GameObject:
   - component: {fileID: 3116726095821033126}
   - component: {fileID: 9016300035642050656}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: C_DustMockup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

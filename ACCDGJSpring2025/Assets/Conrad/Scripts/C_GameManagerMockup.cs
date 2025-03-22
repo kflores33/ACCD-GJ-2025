@@ -12,18 +12,18 @@ public class C_GameManagerMockup : MonoBehaviour
     {
         if (isWeak)
         {
-            arrowSpeed = arrowSpeed + Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.G))
+            arrowSpeed = arrowSpeed + Time.deltaTime/2;
+            if (Input.GetKeyDown(KeyCode.H))
             {
                 isWeak = false;
             }
         }
         else
         {
-            enemySpeed = enemySpeed + Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.G))
+            enemySpeed = enemySpeed + Time.deltaTime/2;
+            if (Input.GetKeyDown(KeyCode.H))
             {
-                isWeak = false;
+                isWeak = true;
             }
         }
     }
