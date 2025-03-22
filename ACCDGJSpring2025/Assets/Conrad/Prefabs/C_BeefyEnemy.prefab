@@ -139,7 +139,7 @@ MonoBehaviour:
   monsterSize: {fileID: 8079367216998773826}
   monsterReward: 0
   monsterSR: {fileID: 4937477986756688450}
-  monsterSprite: {fileID: 0}
+  monsterSprite: {fileID: 21300000, guid: 5ee9cccbe87260542a91470c535a5d89, type: 3}
   monsterDamage: 0
   MonsterSO: {fileID: 11400000, guid: daa8b4f3e1d0799448f70445c22fa1aa, type: 2}
 --- !u!54 &7836004214564139273
