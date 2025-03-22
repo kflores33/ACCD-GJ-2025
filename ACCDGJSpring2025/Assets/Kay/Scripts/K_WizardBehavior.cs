@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class K_WizardBehavior : MonoBehaviour
 {
+    K_GameManager _gameManager;
     [SerializeField] K_WizardStats wizardStats;
 
     [SerializeField]float _currentMana;
@@ -34,6 +35,7 @@ public class K_WizardBehavior : MonoBehaviour
     {
         _rb = gameObject.GetComponent<Rigidbody>();
         _col = gameObject.GetComponentInChildren<Collider>();
+        _gameManager = FindFirstObjectByType<K_GameManager>();
     }
 
     // Update is called once per frame
@@ -132,6 +134,7 @@ public class K_WizardBehavior : MonoBehaviour
     private void TakeDamage(float dmg)
     {
         _currentMana -= dmg; // reduce current mana by damage taken
+        _gameManager.AddToStat(timesHit: 1); // add to times hit stat
     }
 
     private void FixedUpdate()
@@ -186,6 +189,8 @@ public class K_WizardBehavior : MonoBehaviour
             {
                 _currentMana += (manaGain / 2);
             }
+
+            _gameManager.AddToStat(enemiesKilled: 1);
         }
 
         if (collision.gameObject.GetComponent<C_Arrow>() != null)
