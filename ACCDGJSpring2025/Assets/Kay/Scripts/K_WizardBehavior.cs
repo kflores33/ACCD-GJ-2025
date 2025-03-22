@@ -5,9 +5,9 @@ using UnityEngine;
 public class K_WizardBehavior : MonoBehaviour
 {
     K_GameManager _gameManager;
-    [SerializeField] K_WizardStats wizardStats;
+    public K_WizardStats wizardStats;
 
-    [SerializeField]float _currentMana;
+    public float currentMana;
     public float manaGain = 5;
 
     bool _bracedForImpact = false;
@@ -36,6 +36,8 @@ public class K_WizardBehavior : MonoBehaviour
         _rb = gameObject.GetComponent<Rigidbody>();
         _col = gameObject.GetComponentInChildren<Collider>();
         _gameManager = FindFirstObjectByType<K_GameManager>();
+
+        currentMana = 10;
     }
 
     // Update is called once per frame
@@ -55,15 +57,15 @@ public class K_WizardBehavior : MonoBehaviour
     void UpdateWeak()
     {
         // Logic for weak state
-        if (_currentMana < wizardStats.MaxMana) // if current mana is less than max mana
+        if (currentMana < wizardStats.MaxMana) // if current mana is less than max mana
         {
             if (_mustDelay) { _delayCoroutine = StartCoroutine(Delay(wizardStats.ManaRegenDelay)); } // if can delay, wait for delay time
             
-            if (_canDepleteRegen)_currentMana += wizardStats.ManaRegenRate * Time.deltaTime; // regenerate mana over time
+            if (_canDepleteRegen)currentMana += wizardStats.ManaRegenRate * Time.deltaTime; // regenerate mana over time
         }
-        else _currentMana = wizardStats.MaxMana; // if current mana is greater than max mana, set it to max mana
+        else currentMana = wizardStats.MaxMana; // if current mana is greater than max mana, set it to max mana
 
-        if (Input.GetKeyDown(KeyCode.Space) && _currentMana >= 5) // if input to switch state is pressed and there is enough mana
+        if (Input.GetKeyDown(KeyCode.Space) && currentMana >= 5) // if input to switch state is pressed and there is enough mana
         {
             // switch animation state
             Debug.Log("Switching to strong state");
@@ -77,13 +79,13 @@ public class K_WizardBehavior : MonoBehaviour
         if (_braceForImpactCD >= 0) _braceForImpactCD -= Time.deltaTime; // decrement cooldown for bracing for impact
 
         // Logic for strong state
-        if (_currentMana >= 0) // if current mana is greater than or equal to 0...
+        if (currentMana >= 0) // if current mana is greater than or equal to 0...
         {
             if (_mustDelay) { _delayCoroutine = StartCoroutine(Delay(wizardStats.ManaDepletionDelay)); } // if can delay, wait for delay time
 
-            if (_canDepleteRegen) _currentMana -= wizardStats.ManaDepletionRate * Time.deltaTime; // deplete mana over time
+            if (_canDepleteRegen) currentMana -= wizardStats.ManaDepletionRate * Time.deltaTime; // deplete mana over time
         }
-        else _currentMana = 0;
+        else currentMana = 0;
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !(_bracedForImpact) && _braceForImpactCD <= 0) // if input to brace for impact is pressed
         {
@@ -94,7 +96,7 @@ public class K_WizardBehavior : MonoBehaviour
         // if enemy hits while braced for impact, reduce cooldown of ability to 0 and recover mana
         // else, recover half of the mana the player would have gained if braced for impact
 
-        if (Input.GetKeyDown(KeyCode.Space) || _currentMana < 1) // if input to switch state is pressed
+        if (Input.GetKeyDown(KeyCode.Space) || currentMana < 1) // if input to switch state is pressed
         {
             // switch animation state
             Debug.Log("Switching to weak state");
@@ -133,7 +135,7 @@ public class K_WizardBehavior : MonoBehaviour
 
     private void TakeDamage(float dmg)
     {
-        _currentMana -= dmg; // reduce current mana by damage taken
+        currentMana -= dmg; // reduce current mana by damage taken
         _gameManager.AddToStat(timesHit: 1); // add to times hit stat
     }
 
@@ -184,7 +186,7 @@ public class K_WizardBehavior : MonoBehaviour
 
                 if (enemyCol.isDying)
                 {
-                    _currentMana += enemyCol.monsterReward;
+                    currentMana += enemyCol.monsterReward;
                 }
 
                 // cancel coroutine
@@ -196,7 +198,7 @@ public class K_WizardBehavior : MonoBehaviour
             {
                 if (enemyCol.isDying)
                 {
-                    _currentMana += (enemyCol.monsterReward/2);
+                    currentMana += (enemyCol.monsterReward/2);
                 }
             }
 
