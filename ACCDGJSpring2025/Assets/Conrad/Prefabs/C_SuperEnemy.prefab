@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3332439807614235751}
   - component: {fileID: 7836004214564139273}
   m_Layer: 0
-  m_Name: C_BeefyEnemy
+  m_Name: C_SuperEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.03999996, y: 1.776, z: -0.100000024}
-  m_LocalScale: {x: 0.532945, y: 0.532945, z: 0.532945}
+  m_LocalScale: {x: -0.532945, y: 0.532945, z: 0.532945}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3255411550362849351}
@@ -303,7 +303,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -705186838, guid: b0182311bfc4e8e40a362586a76b5f4d, type: 3}
+  m_Sprite: {fileID: -1047659931, guid: 2f79fa193cd571941824b09f65aa0e27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
