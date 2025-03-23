@@ -24,8 +24,13 @@ public class C_EnemySpawnScript : MonoBehaviour
     //    }
     //}
 
+    public AudioClip ArrowSFX;
+
     public void SpawnArrow()
     {
+        GameObject.Find("SFX").GetComponent<AudioSource>().pitch = Mathf.Pow(2, Random.Range(1f, 3f) / 12);
+        A_AudioCAll.instance.SFXfunction(ArrowSFX);
+
         this.transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(minRange, maxRange));
         Instantiate(arrowPrefab,this.transform.position,Quaternion.identity);
     }

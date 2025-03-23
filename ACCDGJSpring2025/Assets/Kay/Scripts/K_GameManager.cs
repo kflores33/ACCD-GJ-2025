@@ -135,6 +135,7 @@ public class K_GameManager : MonoBehaviour
     }
 
     bool _isPaused = false;
+    public AudioClip PauseSFX;
     public void PauseSwitch(bool isPaused)
     {
         if (isPaused)
@@ -144,11 +145,15 @@ public class K_GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
         else
-        {
+        {                
+            GameObject.Find("SFX").GetComponent<AudioSource>().pitch = 1;
+            A_AudioCAll.instance.SFXfunction(PauseSFX);
+
+
             _isPaused = true;
             FindFirstObjectByType<A_SoundManager>().MoveOptionsPanelOnScreen();
             Time.timeScale = 0;
-        } 
+        }
     }
 
     #region Score Related

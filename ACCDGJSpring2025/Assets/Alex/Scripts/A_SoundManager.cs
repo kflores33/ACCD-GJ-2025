@@ -91,11 +91,13 @@ public class A_SoundManager : MonoBehaviour
     }
     public void MoveOptionsPanelOffScreen()
     {
-            OptionsPanel.anchoredPosition = OptionsPanelHidden;
+        OptionsPanel = GameObject.Find("OptionsMenu").GetComponent<RectTransform>();
+        OptionsPanel.anchoredPosition = OptionsPanelHidden;
     }
     public void MoveOptionsPanelOnScreen()
     {
         //Debug.Log("panel should move");
+        OptionsPanel = GameObject.Find("OptionsMenu").GetComponent<RectTransform>();
         OptionsPanel.anchoredPosition = _onScreenPos;
     }
 }

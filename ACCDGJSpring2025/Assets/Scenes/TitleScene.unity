@@ -498,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 1477851919}
     - target: {fileID: 5554073383869394578, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
       propertyPath: OptionsPanelHidden.x
-      value: -1347.1
+      value: -5675
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
