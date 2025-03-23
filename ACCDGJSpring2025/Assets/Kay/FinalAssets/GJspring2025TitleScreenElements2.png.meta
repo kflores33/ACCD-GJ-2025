@@ -121,12 +121,78 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GJspring2025TitleScreenElements2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1573
+        height: 1657
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310cd42589461ad4f889d301ebb9515d
+      internalID: -1026106238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GJspring2025TitleScreenElements2_1
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 0
+        width: 1369
+        height: 1657
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73782d883f752d44b629ae4ab1efe41
+      internalID: -2107709691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GJspring2025TitleScreenElements2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2942
+        height: 1657
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad9e80b702edf34a823a00cf3d48000
+      internalID: 363234826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f16eb3a5817f6c7489b20d773520da57
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +201,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GJspring2025TitleScreenElements2_0: -1026106238
+      GJspring2025TitleScreenElements2_1: -2107709691
+      GJspring2025TitleScreenElements2_2: 363234826
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
