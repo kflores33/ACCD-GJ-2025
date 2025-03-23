@@ -541,6 +541,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1277149263015419115, guid: 765708d5b052c0e44bd9be68cc6e4fe4, type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 8300000, guid: cf75c5933939c37408c09bae2154b8b7, type: 3}
+    - target: {fileID: 1277149263015419115, guid: 765708d5b052c0e44bd9be68cc6e4fe4, type: 3}
       propertyPath: PauseSFX
       value: 
       objectReference: {fileID: 8300000, guid: 606ca6f1a5a8644448d525c76eff8d07, type: 3}
@@ -621,6 +625,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1015619357722581065, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015619357722581065, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f6e0ed0845317f4baf4bb40bd6e5f6a, type: 3}
+    - target: {fileID: 1015619357722581065, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f6e0ed0845317f4baf4bb40bd6e5f6a, type: 3}
+    - target: {fileID: 1015619357722581065, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1847761316891422647, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1149,6 +1169,10 @@ PrefabInstance:
     - target: {fileID: 8526443546800551702, guid: c6d5e5ff59c794749a64d3cd68e6dd3f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595337553702504470, guid: c6d5e5ff59c794749a64d3cd68e6dd3f, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

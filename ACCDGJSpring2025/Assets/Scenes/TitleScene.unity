@@ -435,11 +435,11 @@ PrefabInstance:
     - target: {fileID: 1015619357722581065, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 9f6e0ed0845317f4baf4bb40bd6e5f6a, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1015619357722581065, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 9f6e0ed0845317f4baf4bb40bd6e5f6a, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1015619357722581065, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
@@ -451,6 +451,22 @@ PrefabInstance:
     - target: {fileID: 1847761316891422647, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015255792557572826, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
+      propertyPath: GameMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: cf75c5933939c37408c09bae2154b8b7, type: 3}
+    - target: {fileID: 2015255792557572826, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
+      propertyPath: GameScene
+      value: Conrad_TestScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015255792557572826, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
+      propertyPath: TitleMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f6e0ed0845317f4baf4bb40bd6e5f6a, type: 3}
+    - target: {fileID: 2015255792557572826, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
+      propertyPath: TitleScene
+      value: TitleScene
       objectReference: {fileID: 0}
     - target: {fileID: 3174272489828428529, guid: 9e3915b9897dc444290b8a34642ac027, type: 3}
       propertyPath: m_LocalPosition.x
