@@ -198,6 +198,10 @@ public class K_WizardBehavior : MonoBehaviour
                 if (enemyCol.isDying)
                 {
                     currentMana += enemyCol.monsterReward;
+                    if (currentMana > 25)
+                    {
+                        currentMana = 25;
+                    }
                 }
 
                 // cancel coroutine
@@ -210,6 +214,10 @@ public class K_WizardBehavior : MonoBehaviour
                 if (enemyCol.isDying)
                 {
                     currentMana += (enemyCol.monsterReward/2);
+                }
+                if (currentMana > 25)
+                {
+                    currentMana = 25;
                 }
             }
 
