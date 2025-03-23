@@ -24,6 +24,7 @@ public class K_WizardBehavior : MonoBehaviour
 
     public GameObject injuryPS;
     public GameObject swolePS;
+    public GameObject caloriePS;
 
     float _braceForImpactCD = 0;
 
@@ -105,6 +106,7 @@ public class K_WizardBehavior : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || currentMana < 1) // if input to switch state is pressed
         {
+            Instantiate(caloriePS,this.transform.position, Quaternion.identity);
             // switch animation state
             Debug.Log("Switching to weak state");
             _mustDelay = true;
