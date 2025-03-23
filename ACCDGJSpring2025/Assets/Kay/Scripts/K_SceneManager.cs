@@ -19,7 +19,7 @@ public class K_SceneManager : MonoBehaviour
         }
         else if (targetScene == TargetScene.Main)
         {
-            SceneManager.LoadScene("Conrad_TestScene");
+            SceneManager.LoadScene("Susan_TestScene");
         }
     }
 }
