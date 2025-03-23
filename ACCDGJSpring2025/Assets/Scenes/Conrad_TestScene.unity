@@ -816,6 +816,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
+      propertyPath: swolePS
+      value: 
+      objectReference: {fileID: 650004325238666939, guid: ef059c2444096eb43b3681685cc95a5b, type: 3}
+    - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
+      propertyPath: injuryPS
+      value: 
+      objectReference: {fileID: 650004325238666939, guid: bd8626db39857cf49842cfacdc6dcea1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

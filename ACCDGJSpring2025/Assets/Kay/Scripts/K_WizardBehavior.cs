@@ -22,6 +22,9 @@ public class K_WizardBehavior : MonoBehaviour
     Coroutine _braceForImpactCoroutine;
     Coroutine _delayCoroutine;
 
+    public GameObject injuryPS;
+    public GameObject swolePS;
+
     float _braceForImpactCD = 0;
 
     Vector3 _velocity = Vector3.zero;
@@ -73,7 +76,7 @@ public class K_WizardBehavior : MonoBehaviour
             // switch animation state
             Debug.Log("Switching to strong state");
             _mustDelay = true;
-
+            Instantiate(swolePS,this.transform.position, Quaternion.identity);
             CurrentState = WizardStates.Strong;
         }
     }
@@ -217,7 +220,7 @@ public class K_WizardBehavior : MonoBehaviour
             // take damage
             TakeDamage(5); // example damage value
             _delayCoroutine = StartCoroutine(Delay(wizardStats.ManaRegenDelay));
-
+            Instantiate(injuryPS, this.transform.position, Quaternion.identity);
             Debug.Log("ouchie zawa!!");
         }
     }
