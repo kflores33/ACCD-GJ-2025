@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: C_WizardStats.Updated
   m_EditorClassIdentifier: 
   Speed: 23.2
-  Acceleration: 80
+  Acceleration: 600
   Deceleration: 400
   MaxMana: 25
   ManaRegenRate: 2
