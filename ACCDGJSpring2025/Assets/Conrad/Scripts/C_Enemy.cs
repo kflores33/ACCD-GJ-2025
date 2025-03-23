@@ -17,6 +17,7 @@ public class C_Enemy : MonoBehaviour
     public Sprite monsterSprite;
     public float monsterDamage;
     public EnemySO MonsterSO;
+    public GameObject deathParticle;
 
     public void Awake()
     {
@@ -42,6 +43,7 @@ public class C_Enemy : MonoBehaviour
         {
             if (!isDying)
             {
+                Instantiate(deathParticle,this.transform.position, Quaternion.identity);
                 isDying = true;
                 Debug.Log("Hit Player");
                 if (GMScript != null) GMScript.numberOfKilledEnemies++;

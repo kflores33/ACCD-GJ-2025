@@ -145,6 +145,7 @@ MonoBehaviour:
   monsterSprite: {fileID: -705186838, guid: b0182311bfc4e8e40a362586a76b5f4d, type: 3}
   monsterDamage: 0
   MonsterSO: {fileID: 11400000, guid: daa8b4f3e1d0799448f70445c22fa1aa, type: 2}
+  deathParticle: {fileID: 6752970815814971186, guid: 986b8e43730dec141baba1f39596bbcb, type: 3}
 --- !u!54 &7836004214564139273
 Rigidbody:
   m_ObjectHideFlags: 0

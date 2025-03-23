@@ -311,6 +311,22 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1245629855}
+    - target: {fileID: 6908759300322114891, guid: 74c43c612b8c57d44821843ea56d3162, type: 3}
+      propertyPath: layers.Array.data[0].scrollSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908759300322114891, guid: 74c43c612b8c57d44821843ea56d3162, type: 3}
+      propertyPath: layers.Array.data[1].scrollSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908759300322114891, guid: 74c43c612b8c57d44821843ea56d3162, type: 3}
+      propertyPath: layers.Array.data[2].scrollSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908759300322114891, guid: 74c43c612b8c57d44821843ea56d3162, type: 3}
+      propertyPath: layers.Array.data[3].scrollSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7896265367031900365, guid: 74c43c612b8c57d44821843ea56d3162, type: 3}
       propertyPath: m_Name
       value: Parallax (1)
