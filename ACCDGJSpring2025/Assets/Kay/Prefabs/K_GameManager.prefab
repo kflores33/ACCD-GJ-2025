@@ -44,9 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe8981cab0f80743bba40aebf6df3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
   arrowSpeed: 10
-  enemySpeed: 10
+  enemySpeed: 9
   spawnSpeedMultiplier: 1
+  Music: {fileID: 8300000, guid: cf75c5933939c37408c09bae2154b8b7, type: 3}
+  PauseSFX: {fileID: 8300000, guid: 606ca6f1a5a8644448d525c76eff8d07, type: 3}
   _currentScore: 0
   _enemyKillMultiplier: 10
   _timeSurvivedMultiplier: 1

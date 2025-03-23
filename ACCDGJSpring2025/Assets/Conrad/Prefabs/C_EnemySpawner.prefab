@@ -139,3 +139,4 @@ MonoBehaviour:
   minRange: -5
   monsterSize: 0
   gameManager: {fileID: 0}
+  ArrowSFX: {fileID: 8300000, guid: 87affdd47507b1043bd9c36e781cb5fb, type: 3}

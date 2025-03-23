@@ -46,11 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layers:
   - prefab: {fileID: 6448637853208000606, guid: 76a005c2e7cb7d54880ebbaaeaf7ff13, type: 3}
-    scrollSpeed: 0.05
-  - prefab: {fileID: 8410442849167582081, guid: e335536e46320a94fa6828f2448af86c, type: 3}
-    scrollSpeed: 0.25
-  - prefab: {fileID: 2280927656200561834, guid: 2204efe0c9f9ea44192973df078e32ff, type: 3}
     scrollSpeed: 0.1
+  - prefab: {fileID: 8410442849167582081, guid: e335536e46320a94fa6828f2448af86c, type: 3}
+    scrollSpeed: 1
+  - prefab: {fileID: 2280927656200561834, guid: 2204efe0c9f9ea44192973df078e32ff, type: 3}
+    scrollSpeed: 0.2
   - prefab: {fileID: 5400228385393912461, guid: 8920543ddb7761c4eabe080bcab2421a, type: 3}
-    scrollSpeed: 0.3
+    scrollSpeed: 1.2
   container: {fileID: 0}
+  playerScript: {fileID: 0}

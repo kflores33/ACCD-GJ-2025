@@ -102,8 +102,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wizardStats: {fileID: 11400000, guid: 6bdbde367fd515b4395b8547bc441e4c, type: 2}
-  _currentMana: 5
+  currentMana: 0
   manaGain: 5
+  playerAN: {fileID: 0}
+  injuryPS: {fileID: 650004325238666939, guid: bd8626db39857cf49842cfacdc6dcea1, type: 3}
+  swolePS: {fileID: 650004325238666939, guid: ef059c2444096eb43b3681685cc95a5b, type: 3}
+  caloriePS: {fileID: 650004325238666939, guid: 2f21ac150d7ccdb47b57361441a85d9a, type: 3}
+  failPunch: {fileID: 8300000, guid: 6314e778e7dc0d14b9640aa9662a53ab, type: 3}
+  goodPunch: {fileID: 8300000, guid: f1d38327bd1dc614cb8e0d3f3c8898e7, type: 3}
+  arrowHurt: {fileID: 8300000, guid: 104b4cbf765e36542a0be5aae4896c9a, type: 3}
+  wizSwole: {fileID: 8300000, guid: 9c6d2f643d917754ba94cb13ae317ea9, type: 3}
+  wizWeak: {fileID: 8300000, guid: 22ade54b817dc204a96870448010146b, type: 3}
   CurrentState: 0
 --- !u!54 &4245447650474347496
 Rigidbody:
