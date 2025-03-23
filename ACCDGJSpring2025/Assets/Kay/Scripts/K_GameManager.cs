@@ -11,6 +11,9 @@ struct ScoreFactors
 }
 public class K_GameManager : MonoBehaviour
 {
+    public int CurrentScore => _currentScore;
+    public float CurrentTimeSurvived => _currentTime;
+
     K_WizardBehavior _wizardBehavior;
     C_EnemySpawnScript _enemySpawnScript;
     float _currentTime;
@@ -37,50 +40,60 @@ public class K_GameManager : MonoBehaviour
     void Update()
     {
         _currentTime += Time.deltaTime;
-        AddToStat(timeSurvived: _currentTime);
 
+        while (_currentTime >= 1f)
+        {
+            AddToStat(timeSurvived: 1); // Increment the survival time by exactly one second
+            _currentTime -= 1f; // Reduce current time by one second to account for the time added to stats
+            ConvertToScore();  // Recalculate the score
+        }
+
+        HandleGameplayLogic();
+    }
+
+    void HandleGameplayLogic()
+    {
         if (_wizardBehavior == null) return;
         if (_wizardBehavior.CurrentState == K_WizardBehavior.WizardStates.Weak)
         {
-            // Logic for when the wizard is weak
-            // Conrad: Introduced hard limit to arrow speed to prevent unreactable arrows
-            if (arrowSpeed < 20)
-            {
-                arrowSpeed = arrowSpeed + Time.deltaTime / 2;
-            }
-            // like...every so often, spawn an arrow
-
-            if(_enemySpawnScript == null) return ;
-
-            if (!_isSpawning)
-            {
-                _spawnStuffCoroutine = StartCoroutine(SpawnThing(isWeak: true));
-            }
+            AdjustArrowSpeed();
+            TrySpawn(SpawnThing(isWeak: true));
         }
         else if (_wizardBehavior.CurrentState == K_WizardBehavior.WizardStates.Strong)
         {
-            // Logic for when the wizard is strong
-            // Conrad: Introduced hard limit to enemy speed to prevent uncatchable foes
-            if (enemySpeed < 20)
-            {
-                enemySpeed = enemySpeed + Time.deltaTime / 2;
-            }
-            // every so often, spawn an enemy
-
-            if (_enemySpawnScript == null) return;
-
-            if (!_isSpawning)
-            {
-                _spawnStuffCoroutine = StartCoroutine(SpawnThing(isWeak: false));
-            }
+            AdjustEnemySpeed();
+            TrySpawn(SpawnThing(isWeak: false));
         }
 
-        if((_last30sInterval + 30) <= _currentTime) // every 30s, increase speed
+        if ((_last30sInterval + 30) <= _currentTime)
         {
             _30sHasPassed = true;
             IncreaseGameSpeed();
         }
     }
+
+    void AdjustArrowSpeed()
+    {
+        if (arrowSpeed < 20)
+        {
+            arrowSpeed += Time.deltaTime / 2;
+        }
+    }
+
+    void AdjustEnemySpeed()
+    {
+        if (enemySpeed < 20)
+        {
+            enemySpeed += Time.deltaTime / 2;
+        }
+    }
+
+    void TrySpawn(IEnumerator spawnRoutine)
+    {
+        if (_enemySpawnScript == null || _isSpawning) return;
+        _spawnStuffCoroutine = StartCoroutine(spawnRoutine);
+    }
+
 
     float _last30sInterval;
     bool _30sHasPassed;
@@ -115,18 +128,49 @@ public class K_GameManager : MonoBehaviour
     #region Score Related
     public void AddToStat(int timesHit = 0, int enemiesKilled = 0, float timeSurvived = 0)
     {
-        if (timesHit > 0) _scoreFactors.TimesHit += timesHit;
-        if (enemiesKilled > 0) _scoreFactors.EnemiesKilled += enemiesKilled;
-        if (timeSurvived > 0) _scoreFactors.TimeSurvived += timeSurvived;
+        if (timesHit > 0)
+        {
+            // Adjust the score factor for times hit to decrease the score
+            _scoreFactors.TimesHit += timesHit;
+        }
+        if (enemiesKilled > 0)
+        {
+            _scoreFactors.EnemiesKilled += enemiesKilled;
+        }
+        if (timeSurvived > 0)
+        {
+            _scoreFactors.TimeSurvived += timeSurvived;
+        }
+
+        ConvertToScore(); // Update score after modifying the stats
     }
+
+
+
+
 
     [SerializeField] int _currentScore;
     [SerializeField] float _enemyKillMultiplier = 10;
     [SerializeField] float _timeSurvivedMultiplier = 1;
     [SerializeField] float _timesHitMultiplier = -5;
     public void ConvertToScore()
+{
+    int newScore = (int)(_scoreFactors.EnemiesKilled * _enemyKillMultiplier +
+                         _scoreFactors.TimeSurvived * _timeSurvivedMultiplier +
+                         _scoreFactors.TimesHit * _timesHitMultiplier);
+
+    // Check if the new score calculation results in a negative score and the current score is zero
+    if (_currentScore == 0 && newScore < 0)
     {
-        _currentScore = (int)((_scoreFactors.EnemiesKilled * _enemyKillMultiplier) + (_scoreFactors.TimeSurvived * _timeSurvivedMultiplier) + (_scoreFactors.TimesHit * _timesHitMultiplier));
+        // Do not allow the score to go negative if it's already zero
+        _currentScore = 0;
     }
+    else
+    {
+        _currentScore = Mathf.Max(0, newScore);  // Prevent the score from going negative
+    }
+}
+
+
     #endregion
 }
