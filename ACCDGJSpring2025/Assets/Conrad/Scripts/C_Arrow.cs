@@ -9,6 +9,7 @@ public class C_Arrow : MonoBehaviour
 
     public float arrowSpeed;
     public bool isDying;
+    public GameObject painParticle;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class C_Arrow : MonoBehaviour
         {
             if (!isDying)
             {
+                Instantiate(painParticle, transform.position, Quaternion.identity);
                 isDying = true;
                 Debug.Log("Hit Player");
                 if (GMScript != null) GMScript.timesHitByArrow++;
