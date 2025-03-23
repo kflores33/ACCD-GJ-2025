@@ -45,10 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layers:
-  - prefab: {fileID: 5217083852175399226, guid: b9364f96c5eeb1c44886d838828554aa, type: 3}
+  - prefab: {fileID: 6448637853208000606, guid: 76a005c2e7cb7d54880ebbaaeaf7ff13, type: 3}
+    scrollSpeed: 0.05
+  - prefab: {fileID: 8410442849167582081, guid: e335536e46320a94fa6828f2448af86c, type: 3}
+    scrollSpeed: 0.25
+  - prefab: {fileID: 2280927656200561834, guid: 2204efe0c9f9ea44192973df078e32ff, type: 3}
     scrollSpeed: 0.1
-  - prefab: {fileID: 6445638228172079679, guid: 9da8958eeec481445a344d9fec65bd5a, type: 3}
-    scrollSpeed: 0.5
-  - prefab: {fileID: 8483332474390676841, guid: 7745daf98f8db054c994db9e168fc34f, type: 3}
-    scrollSpeed: 0.8
+  - prefab: {fileID: 5400228385393912461, guid: 8920543ddb7761c4eabe080bcab2421a, type: 3}
+    scrollSpeed: 0.3
   container: {fileID: 0}
