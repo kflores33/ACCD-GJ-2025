@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3332439807614235751}
   - component: {fileID: 7836004214564139273}
   m_Layer: 0
-  m_Name: C_BeefyEnemy
+  m_Name: C_SuperEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

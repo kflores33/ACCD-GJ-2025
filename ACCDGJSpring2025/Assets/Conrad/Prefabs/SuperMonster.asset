@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a5153851b51374f9912229b383f56a, type: 3}
-  m_Name: BeefyMonster
+  m_Name: SuperMonster
   m_EditorClassIdentifier: 
   enemyName: Beefy
   enemySprite: {fileID: 21300000, guid: 5ee9cccbe87260542a91470c535a5d89, type: 3}

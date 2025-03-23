@@ -117,6 +117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7413986728412771742}
   - {fileID: 2228872704903777207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -134,6 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScript: {fileID: 0}
   GMScript: {fileID: 0}
+  K_Wiz: {fileID: 0}
+  k_GM: {fileID: 0}
   monsterSpeed: 0
   isDying: 0
   monsterSize: {fileID: 8079367216998773826}
@@ -200,7 +203,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3873826563429636512}
-  - {fileID: 7413986728412771742}
   m_Father: {fileID: 3255411550362849351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2319250495047632673
@@ -234,6 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7413986728412771742}
   - component: {fileID: 4937477986756688450}
+  - component: {fileID: 1215459666824056371}
   m_Layer: 0
   m_Name: C_EnemyMockup
   m_TagString: Untagged
@@ -249,12 +252,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8399112242685463148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03999996, y: 0.995, z: 0.83199996}
-  m_LocalScale: {x: 0.3, y: 0.29289, z: 0.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.199, y: 1.47, z: 0.11}
+  m_LocalScale: {x: -0.50624067, y: 0.49424273, z: 0.50624067}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2228872704903777207}
+  m_Father: {fileID: 3255411550362849351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4937477986756688450
 SpriteRenderer:
@@ -300,7 +303,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c46666e634997d4eac89b44246220db, type: 3}
+  m_Sprite: {fileID: -1382414558, guid: d2092635fcf096348a6444abd28a2f38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -311,3 +314,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1215459666824056371
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399112242685463148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a7c069ab69cb264ab63f0fa55cbf69f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.046}
-  m_LocalScale: {x: 0.22832952, y: 0.22832952, z: 0.22832952}
+  m_LocalScale: {x: 0.30098397, y: 0.30098397, z: 0.30098397}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2228872704903777207}
@@ -117,6 +117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7413986728412771742}
   - {fileID: 2228872704903777207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,7 +203,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3873826563429636512}
-  - {fileID: 7413986728412771742}
   m_Father: {fileID: 3255411550362849351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2319250495047632673
@@ -236,6 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7413986728412771742}
   - component: {fileID: 4937477986756688450}
+  - component: {fileID: 440553481609519312}
   m_Layer: 0
   m_Name: C_EnemyMockup
   m_TagString: Untagged
@@ -251,12 +252,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8399112242685463148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03999996, y: 0.995, z: 0.247}
-  m_LocalScale: {x: 3.4616594, y: 3.379618, z: 3.4616594}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01999998, y: 0.01, z: 0.19099998}
+  m_LocalScale: {x: 0.3597815, y: 0.35125464, z: 0.3597815}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2228872704903777207}
+  m_Father: {fileID: 3255411550362849351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4937477986756688450
 SpriteRenderer:
@@ -302,7 +303,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 10cfc10b24f76bb4dba9008da7c10037, type: 3}
+  m_Sprite: {fileID: -1915355359, guid: e44d4b50bb9cfb74db05e11af2ce80ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -313,3 +314,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &440553481609519312
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399112242685463148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 014f241db022e2b47acc6f09d7a59a1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
