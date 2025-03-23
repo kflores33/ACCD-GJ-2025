@@ -3,23 +3,21 @@ using TMPro;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    public K_GameManager gameManager; // Reference to the GameManager component
-    public TextMeshProUGUI scoreText; // UI Text element for displaying the score
-    public TextMeshProUGUI timeText;  // UI Text element for displaying the time
+    public K_GameManager gameManager;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timeText;
 
-    private float elapsedTime = 0f;  // Local timer for tracking elapsed time
+    private float elapsedTime = 0f;
+    public int currentScore = 0;  // Local copy of the score
 
     void Update()
     {
         if (gameManager != null)
         {
-            // Update the score from the game manager
-            scoreText.text = "Score: " + gameManager.CurrentScore;
-
-            // Increment the local timer based on real time elapsed
+            currentScore = gameManager.CurrentScore;
+            scoreText.text = "Score: " + currentScore;
             elapsedTime += Time.deltaTime;
-            // Display the elapsed time rounded down to the nearest second
-            timeText.text = "Time: " + Mathf.FloorToInt(elapsedTime).ToString() + "s";
+            timeText.text = "Time: " + Mathf.FloorToInt(elapsedTime) + "s";
         }
     }
 }

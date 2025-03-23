@@ -11,6 +11,7 @@ struct ScoreFactors
 }
 public class K_GameManager : MonoBehaviour
 {
+    public string playerName;
     public int CurrentScore => _currentScore;
     public float CurrentTimeSurvived => _currentTime;
 
@@ -35,6 +36,12 @@ public class K_GameManager : MonoBehaviour
         Time.timeScale = 1; // Ensure the game is running
 
         _last30sInterval = 0;
+
+        if (PlayerInfo.Instance != null)
+        {
+            playerName = PlayerInfo.Instance.playerName;
+            InitializeGameWithPlayerName();
+        }
     }
 
     void Update()
@@ -143,6 +150,13 @@ public class K_GameManager : MonoBehaviour
         }
 
         ConvertToScore(); // Update score after modifying the stats
+    }
+
+    void InitializeGameWithPlayerName()
+    {
+        // Any initialization logic that depends on the player's name
+        Debug.Log("Game started with player: " + playerName);
+        // You can update any UI or game logic that needs the player's name here
     }
 
 

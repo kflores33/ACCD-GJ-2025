@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PlayerInfo : MonoBehaviour
 {
@@ -10,21 +11,23 @@ public class PlayerInfo : MonoBehaviour
     public TMP_InputField nameInputField;
     public Button submitButton;
     public string playerName;
+    public int currentScore;
+    public List<int> highScores = new List<int>();
 
-    void Awake()
-    {
-        if (Instance == null)
+        void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);  // Persist this object across scenes
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);  // This object persists across scenes
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
-    void Start()
+        void Start()
     {
         submitButton.onClick.AddListener(SubmitName);
     }
