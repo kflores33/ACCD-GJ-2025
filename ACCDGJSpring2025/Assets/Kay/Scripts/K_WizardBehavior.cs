@@ -12,7 +12,9 @@ public class K_WizardBehavior : MonoBehaviour
 
     bool _bracedForImpact = false;
     bool _mustDelay = true;
-    bool _canDepleteRegen = false;  
+    bool _canDepleteRegen = false;
+
+    public Animator playerAN;
 
     Rigidbody _rb;
     Collider _col;
@@ -56,6 +58,7 @@ public class K_WizardBehavior : MonoBehaviour
 
     void UpdateWeak()
     {
+        playerAN.SetBool("isStrong", false);
         // Logic for weak state
         if (currentMana < wizardStats.MaxMana) // if current mana is less than max mana
         {
@@ -76,6 +79,7 @@ public class K_WizardBehavior : MonoBehaviour
     }
     void UpdateStrong()
     {
+        playerAN.SetBool("isStrong", true);
         if (_braceForImpactCD >= 0) _braceForImpactCD -= Time.deltaTime; // decrement cooldown for bracing for impact
 
         // Logic for strong state
@@ -120,6 +124,7 @@ public class K_WizardBehavior : MonoBehaviour
 
     private IEnumerator BraceForImpact()
     {
+        playerAN.SetBool("isCharging", true);
         _bracedForImpact = true;
         Debug.Log("Bracing for impact");
 
@@ -129,7 +134,7 @@ public class K_WizardBehavior : MonoBehaviour
 
         Debug.Log("time's up, unbraced");
         _bracedForImpact = false;
-
+        playerAN.SetBool("isCharging", false);
         _braceForImpactCoroutine = null;
     }
 
@@ -179,6 +184,7 @@ public class K_WizardBehavior : MonoBehaviour
         {
             if (_bracedForImpact)
             {
+                StartCoroutine(CancelPunch());
                 // reduce cooldown of ability to 0 and recover mana
                 Debug.Log("Reduced cooldown and recovered mana");
 
@@ -217,4 +223,13 @@ public class K_WizardBehavior : MonoBehaviour
     }
 
     private void ApplyMovement() => _rb.linearVelocity = _velocity;
+
+    IEnumerator CancelPunch()
+    {
+        playerAN.SetBool("isPunching", true);
+        yield return new WaitForSeconds(.5f);
+        playerAN.SetBool("isPunching", false);
+        playerAN.SetBool("isCharging", false);
+        StopCoroutine(CancelPunch());
+    }
 }
