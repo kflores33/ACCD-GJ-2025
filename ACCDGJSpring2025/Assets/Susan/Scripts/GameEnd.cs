@@ -24,9 +24,14 @@ public class EndGame : MonoBehaviour
     {
         if (gameManager != null)
         {
-            // Store the score and player's name using PlayerPrefs
-            PlayerPrefs.SetInt("LastGameScore", gameManager.CurrentScore);
-            PlayerPrefs.SetString("PlayerName", PlayerInfo.Instance.playerName);
+            int currentScore = gameManager.CurrentScore;
+            string playerName = PlayerInfo.Instance.playerName;
+
+            UpdateHighScores(currentScore, playerName);
+
+            // Store the current game score and player's name
+            PlayerPrefs.SetInt("LastGameScore", currentScore);
+            PlayerPrefs.SetString("PlayerName", playerName);
         }
         else
         {
@@ -36,5 +41,43 @@ public class EndGame : MonoBehaviour
         }
 
         SceneManager.LoadScene("EndScene");
+    }
+
+    void UpdateHighScores(int score, string playerName)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            // Construct PlayerPrefs keys
+            string scoreKey = $"HighScore{i}Score";
+            string nameKey = $"HighScore{i}Name";
+
+            if (PlayerPrefs.HasKey(scoreKey))
+            {
+                int savedScore = PlayerPrefs.GetInt(scoreKey);
+                if (score > savedScore)
+                {
+                    // Shift down the leaderboard
+                    for (int j = 5; j > i; j--)
+                    {
+                        int lowerScore = PlayerPrefs.GetInt($"HighScore{j - 1}Score");
+                        string lowerName = PlayerPrefs.GetString($"HighScore{j - 1}Name");
+                        PlayerPrefs.SetInt($"HighScore{j}Score", lowerScore);
+                        PlayerPrefs.SetString($"HighScore{j}Name", lowerName);
+                    }
+
+                    // Insert new high score
+                    PlayerPrefs.SetInt(scoreKey, score);
+                    PlayerPrefs.SetString(nameKey, playerName);
+                    break;
+                }
+            }
+            else
+            {
+                // If no high score exists at this position, insert here
+                PlayerPrefs.SetInt(scoreKey, score);
+                PlayerPrefs.SetString(nameKey, playerName);
+                break;
+            }
+        }
     }
 }
