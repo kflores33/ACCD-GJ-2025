@@ -1434,13 +1434,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 650004325238666939, guid: ef059c2444096eb43b3681685cc95a5b, type: 3}
     - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
+      propertyPath: wizWeak
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ade54b817dc204a96870448010146b, type: 3}
+    - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
       propertyPath: injuryPS
       value: 
       objectReference: {fileID: 650004325238666939, guid: bd8626db39857cf49842cfacdc6dcea1, type: 3}
     - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
+      propertyPath: wizSwole
+      value: 
+      objectReference: {fileID: 8300000, guid: 9c6d2f643d917754ba94cb13ae317ea9, type: 3}
+    - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
+      propertyPath: arrowHurt
+      value: 
+      objectReference: {fileID: 8300000, guid: 104b4cbf765e36542a0be5aae4896c9a, type: 3}
+    - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
       propertyPath: caloriePS
       value: 
       objectReference: {fileID: 650004325238666939, guid: 2f21ac150d7ccdb47b57361441a85d9a, type: 3}
+    - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
+      propertyPath: failPunch
+      value: 
+      objectReference: {fileID: 8300000, guid: 6314e778e7dc0d14b9640aa9662a53ab, type: 3}
+    - target: {fileID: 5335419252830347857, guid: fb9b17611893d8e43b10c8c017b31dd4, type: 3}
+      propertyPath: goodPunch
+      value: 
+      objectReference: {fileID: 8300000, guid: f1d38327bd1dc614cb8e0d3f3c8898e7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

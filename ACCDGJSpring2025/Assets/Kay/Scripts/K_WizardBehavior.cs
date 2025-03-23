@@ -26,6 +26,12 @@ public class K_WizardBehavior : MonoBehaviour
     public GameObject swolePS;
     public GameObject caloriePS;
 
+    public AudioClip failPunch;
+    public AudioClip goodPunch;
+    public AudioClip arrowHurt;
+    public AudioClip wizSwole;
+    public AudioClip wizWeak;
+
     float _braceForImpactCD = 0;
 
     Vector3 _velocity = Vector3.zero;
@@ -74,6 +80,7 @@ public class K_WizardBehavior : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && currentMana >= 5) // if input to switch state is pressed and there is enough mana
         {
+            A_AudioCAll.instance.SFXfunction(wizSwole);
             // switch animation state
             Debug.Log("Switching to strong state");
             _mustDelay = true;
@@ -106,6 +113,7 @@ public class K_WizardBehavior : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || currentMana < 1) // if input to switch state is pressed
         {
+            A_AudioCAll.instance.SFXfunction(wizWeak);
             Instantiate(caloriePS,this.transform.position, Quaternion.identity);
             // switch animation state
             Debug.Log("Switching to weak state");
@@ -197,6 +205,7 @@ public class K_WizardBehavior : MonoBehaviour
 
                 if (enemyCol.isDying)
                 {
+                    A_AudioCAll.instance.SFXfunction(goodPunch);
                     currentMana += enemyCol.monsterReward;
                     if (currentMana > 25)
                     {
@@ -213,6 +222,7 @@ public class K_WizardBehavior : MonoBehaviour
             {
                 if (enemyCol.isDying)
                 {
+                    A_AudioCAll.instance.SFXfunction(failPunch);
                     currentMana += (enemyCol.monsterReward/2);
                 }
                 if (currentMana > 25)
@@ -227,6 +237,7 @@ public class K_WizardBehavior : MonoBehaviour
         C_Arrow arrowCol = collision.gameObject.GetComponent<C_Arrow>();
         if (arrowCol != null)
         {
+            A_AudioCAll.instance.SFXfunction(arrowHurt);
             // take damage
             TakeDamage(5); // example damage value
             _delayCoroutine = StartCoroutine(Delay(wizardStats.ManaRegenDelay));
