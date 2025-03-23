@@ -29,6 +29,8 @@ public class K_GameManager : MonoBehaviour
     Coroutine _spawnStuffCoroutine;
     bool _isSpawning;
 
+    public AudioClip Music;
+
     void Start()
     {
         _enemySpawnScript = FindFirstObjectByType<C_EnemySpawnScript>();
@@ -42,6 +44,12 @@ public class K_GameManager : MonoBehaviour
             playerName = PlayerInfo.Instance.playerName;
             InitializeGameWithPlayerName();
         }
+
+        if(GameObject.Find("Music").GetComponent<AudioSource>().clip != null)
+        {
+            GameObject.Find("Music").GetComponent<AudioSource>().clip = null;
+        }
+        A_AudioCAll.instance.Musicfunction(Music);
     }
 
     void Update()
@@ -74,7 +82,7 @@ public class K_GameManager : MonoBehaviour
             TrySpawn(SpawnThing(isWeak: false));
         }
 
-        if ((_last30sInterval + 30) <= _currentTime)
+        if ((_currentTime - 30) >= _last30sInterval)
         {
             _30sHasPassed = true;
             IncreaseGameSpeed();

@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class A_AudioCAll : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class A_AudioCAll : MonoBehaviour
     public AudioSource music;
     public AudioSource sFX;
     public AudioSource dialog;
+
     void Awake()
     {
         if (instance == null)
