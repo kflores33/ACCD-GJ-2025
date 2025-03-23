@@ -371,14 +371,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Info
       objectReference: {fileID: 0}
-    - target: {fileID: 1421043514581234782, guid: 1d39cbd0e2f903b4eb23c37275571824, type: 3}
-      propertyPath: submitButton
-      value: 
-      objectReference: {fileID: 808191974}
-    - target: {fileID: 1421043514581234782, guid: 1d39cbd0e2f903b4eb23c37275571824, type: 3}
-      propertyPath: nameInputField
-      value: 
-      objectReference: {fileID: 828133141}
     - target: {fileID: 6410274552450900536, guid: 1d39cbd0e2f903b4eb23c37275571824, type: 3}
       propertyPath: m_LocalPosition.x
       value: 962
@@ -561,6 +553,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1938924983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938924985}
+  - component: {fileID: 1938924984}
+  m_Layer: 0
+  m_Name: UI Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1938924984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938924983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c422efba89d1afa4eab9be38b6791228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameInputField: {fileID: 828133141}
+  submitButton: {fileID: 808191974}
+--- !u!4 &1938924985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938924983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 2.0304031, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6033036475642999163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -627,3 +665,4 @@ SceneRoots:
   - {fileID: 6033036475642999163}
   - {fileID: 936525382}
   - {fileID: 38522574}
+  - {fileID: 1938924985}

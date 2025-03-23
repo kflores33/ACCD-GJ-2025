@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HighScoreDisplay : MonoBehaviour
 {
@@ -17,5 +18,10 @@ public class HighScoreDisplay : MonoBehaviour
                 highScoreText.text += $"{i}. {name} - {score}\n";
             }
         }
+    }
+
+    public void LoadTitleScene()
+    {
+        SceneManager.LoadScene("TitleScene");  // Replace "TitleScene" with the actual name of your title scene
     }
 }
