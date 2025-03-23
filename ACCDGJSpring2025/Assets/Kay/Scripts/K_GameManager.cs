@@ -46,6 +46,8 @@ public class K_GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) PauseSwitch(_isPaused);
+
         _currentTime += Time.deltaTime;
 
         while (_currentTime >= 1f)
@@ -130,6 +132,23 @@ public class K_GameManager : MonoBehaviour
 
         StopCoroutine(_spawnStuffCoroutine);
         _spawnStuffCoroutine = null;
+    }
+
+    bool _isPaused = false;
+    public void PauseSwitch(bool isPaused)
+    {
+        if (isPaused)
+        {
+            _isPaused = false;
+            FindFirstObjectByType<A_SoundManager>().MoveOptionsPanelOffScreen();
+            Time.timeScale = 1;
+        }
+        else
+        {
+            _isPaused = true;
+            FindFirstObjectByType<A_SoundManager>().MoveOptionsPanelOnScreen();
+            Time.timeScale = 0;
+        } 
     }
 
     #region Score Related
