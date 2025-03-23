@@ -32,6 +32,27 @@ public class A_SoundManager : MonoBehaviour
         SFXSlider.minValue = minValueVolume;
         dialogSlider.minValue = minValueVolume;
 
+        // I (kay) added some stuff to store the values between scenes/plays/whatever
+        if (PlayerPrefs.HasKey("MasterVolume")) {
+            //Debug.Log("master volume has been set previously");
+            masterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+            SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume")); 
+        }
+        if (PlayerPrefs.HasKey("MusicVolume")) { 
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+            SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
+        }
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+            SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+        }
+        if (PlayerPrefs.HasKey("DialogVolume"))
+        {
+            dialogSlider.value = PlayerPrefs.GetFloat("DialogVolume");
+            SetDialogVolume(PlayerPrefs.GetFloat("DialogVolume"));
+        }
+
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
         SFXSlider.onValueChanged.AddListener(SetSFXVolume);
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
@@ -41,17 +62,25 @@ public class A_SoundManager : MonoBehaviour
     void SetMasterVolume(float value)
     {
         audioMixer.SetFloat(mixer_Master, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
+        PlayerPrefs.Save();
     }
     void SetMusicVolume(float value)
     {
         audioMixer.SetFloat(mixer_Music, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+        PlayerPrefs.Save();
     }
     void SetSFXVolume(float value)
     {
         audioMixer.SetFloat(mixer_SFX, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
+        PlayerPrefs.Save();
     }
     void SetDialogVolume(float value)
     {
         audioMixer.SetFloat(mixer_Dialog, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat("DialogVolume", dialogSlider.value);
+        PlayerPrefs.Save();
     }
 }
