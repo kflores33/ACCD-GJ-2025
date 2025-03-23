@@ -30,6 +30,7 @@ public class ParallaxBackground : MonoBehaviour
     public ParallaxLayer[] layers; // 存储所有视差层
     public Transform container; // 容器对象，用于存放所有背景层的实例
     private float direction = 1.0f; // 默认向右滚动
+    public K_WizardBehavior playerScript; // Reference to the player script
 
     void Start()
     {
@@ -41,7 +42,10 @@ public class ParallaxBackground : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // 假设空格键用于改变方向
+        // Automatically set direction based on player state
+        direction = playerScript.CurrentState == K_WizardBehavior.WizardStates.Weak ? 1.0f : -1.0f;
+
+        if (Input.GetKeyDown(KeyCode.Space)) // 空格键用于改变方向
         {
             direction *= -1; // 切换方向
         }
