@@ -48,11 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb8e3df928629c47a38215fa277fd00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 52bf361b9956e2c4ebbd5882ea94cee6, type: 2}
-  masterSlider: {fileID: 0}
-  musicSlider: {fileID: 0}
-  SFXSlider: {fileID: 0}
-  dialogSlider: {fileID: 0}
+  OptionsPanel: {fileID: 0}
+  OptionsPanelHidden: {x: 0, y: 0}
 --- !u!114 &2015255792557572826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4406992178393098980}
   - component: {fileID: 1015619357722581065}
+  - component: {fileID: 1461498031880762027}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -197,6 +195,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1461498031880762027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543009714346276633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3643a6ca486b8d34ca959b39fd2f8aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4576616279485168092
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6057154148390755715}
   - component: {fileID: 3492794583225175200}
+  - component: {fileID: 8036272099564055849}
   m_Layer: 0
   m_Name: SFX
   m_TagString: Untagged
@@ -326,6 +337,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8036272099564055849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576616279485168092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3643a6ca486b8d34ca959b39fd2f8aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6342964276412126113
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5852261605683957990}
   - component: {fileID: 1620027493224670110}
+  - component: {fileID: 2075233475096504132}
   m_Layer: 0
   m_Name: Dialog
   m_TagString: Untagged
@@ -455,3 +479,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2075233475096504132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342964276412126113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3643a6ca486b8d34ca959b39fd2f8aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

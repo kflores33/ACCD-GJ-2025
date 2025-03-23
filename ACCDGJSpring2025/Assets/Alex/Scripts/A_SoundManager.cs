@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class A_SoundManager : MonoBehaviour
 {
+    public RectTransform OptionsPanel;
+    public Vector2 OptionsPanelHidden;
+    Vector2 _onScreenPos;
+
     private AudioMixer audioMixer;
 
     private float minValueVolume;
@@ -18,6 +22,8 @@ public class A_SoundManager : MonoBehaviour
     
     void Awake()
     {
+        _onScreenPos = Vector2.zero;
+        OptionsPanel.anchoredPosition = OptionsPanelHidden;
         audioMixer = Resources.Load<AudioMixer>("Mixer");
 
         masterSlider = GameObject.Find("MasterSlider").GetComponent<Slider>();
@@ -82,5 +88,14 @@ public class A_SoundManager : MonoBehaviour
         audioMixer.SetFloat(mixer_Dialog, Mathf.Log10(value) * 20);
         PlayerPrefs.SetFloat("DialogVolume", dialogSlider.value);
         PlayerPrefs.Save();
+    }
+    public void MoveOptionsPanelOffScreen()
+    {
+            OptionsPanel.anchoredPosition = OptionsPanelHidden;
+    }
+    public void MoveOptionsPanelOnScreen()
+    {
+        //Debug.Log("panel should move");
+        OptionsPanel.anchoredPosition = _onScreenPos;
     }
 }
