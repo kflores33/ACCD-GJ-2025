@@ -116,7 +116,6 @@ public class K_GameManager : MonoBehaviour
         _spawnStuffCoroutine = StartCoroutine(spawnRoutine);
     }
 
-
     float _last10sInterval;
     bool _10sHasPassed;
 

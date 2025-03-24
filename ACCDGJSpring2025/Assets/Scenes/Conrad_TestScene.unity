@@ -521,7 +521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6908759300322114891, guid: 74c43c612b8c57d44821843ea56d3162, type: 3}
       propertyPath: layers.Array.data[3].scrollSpeed
-      value: 1.2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7896265367031900365, guid: 74c43c612b8c57d44821843ea56d3162, type: 3}
       propertyPath: m_Name
@@ -555,6 +555,10 @@ PrefabInstance:
     - target: {fileID: 1277149263015419115, guid: 765708d5b052c0e44bd9be68cc6e4fe4, type: 3}
       propertyPath: enemySpeed
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277149263015419115, guid: 765708d5b052c0e44bd9be68cc6e4fe4, type: 3}
+      propertyPath: spawnSpeedMultiplier
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5404665520033374738, guid: 765708d5b052c0e44bd9be68cc6e4fe4, type: 3}
       propertyPath: m_Name
