@@ -959,6 +959,7 @@ GameObject:
   - component: {fileID: 4926948926522407503}
   - component: {fileID: 8919279643814873374}
   - component: {fileID: 8010827954371146487}
+  - component: {fileID: 705384637511640532}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -1032,6 +1033,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &705384637511640532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4542068755221994235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7537ac3be6ba3df4d8ca523e0a048129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4783915196297025965
 GameObject:
   m_ObjectHideFlags: 0

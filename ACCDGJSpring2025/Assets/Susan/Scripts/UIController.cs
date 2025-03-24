@@ -25,6 +25,9 @@ public class UIController : MonoBehaviour
         if (PlayerInfo.Instance != null && nameInputField != null)
         {
             PlayerInfo.Instance.playerName = nameInputField.text;  // Store the player's name
+            FindFirstObjectByType<A_SoundManager>().OptionsPanel = null;
+            Debug.Log(FindFirstObjectByType<A_SoundManager>().OptionsPanel);
+
             SceneManager.LoadScene("Conrad_TestScene");  // Load the game scene
         }
         else

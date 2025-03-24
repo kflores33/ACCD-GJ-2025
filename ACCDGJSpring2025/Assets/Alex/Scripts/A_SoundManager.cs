@@ -91,15 +91,15 @@ public class A_SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("DialogVolume", dialogSlider.value);
         PlayerPrefs.Save();
     }
-    public void MoveOptionsPanelOffScreen()
+    public void MoveOptionsPanelOffScreen(RectTransform optionsPanel)
     {
-        OptionsPanel = GameObject.Find("OptionsMenu").GetComponent<RectTransform>();
+        OptionsPanel = optionsPanel;
         OptionsPanel.anchoredPosition = OptionsPanelHidden;
     }
-    public void MoveOptionsPanelOnScreen()
+    public void MoveOptionsPanelOnScreen(RectTransform optionsPanel)
     {
         //Debug.Log("panel should move");
-        OptionsPanel = GameObject.Find("OptionsMenu").GetComponent<RectTransform>();
+        OptionsPanel = optionsPanel;
         OptionsPanel.anchoredPosition = _onScreenPos;
     }
 }

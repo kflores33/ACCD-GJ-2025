@@ -98,7 +98,7 @@ public class K_WizardBehavior : MonoBehaviour
         {
             if (_mustDelay) { _delayCoroutine = StartCoroutine(Delay(wizardStats.ManaDepletionDelay)); } // if can delay, wait for delay time
 
-            if (_canDepleteRegen) currentMana -= wizardStats.ManaDepletionRate * Time.deltaTime; // deplete mana over time
+            if (_canDepleteRegen) currentMana -= (wizardStats.ManaDepletionRate * (_gameManager.spawnSpeedMultiplier/4)) * Time.deltaTime; // deplete mana over time
         }
         else currentMana = 0;
 

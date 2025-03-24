@@ -30,6 +30,7 @@ public class K_GameManager : MonoBehaviour
     bool _isSpawning;
 
     public AudioClip Music;
+    public OptionMenu OptionMenu;
 
     void Start()
     {
@@ -37,7 +38,7 @@ public class K_GameManager : MonoBehaviour
         _wizardBehavior = FindFirstObjectByType<K_WizardBehavior>();
         Time.timeScale = 1; // Ensure the game is running
 
-        _last30sInterval = 0;
+        _last10sInterval = 1;
 
         if (PlayerInfo.Instance != null)
         {
@@ -45,11 +46,16 @@ public class K_GameManager : MonoBehaviour
             InitializeGameWithPlayerName();
         }
 
-        if(GameObject.Find("Music").GetComponent<AudioSource>().clip != null)
+        if(GameObject.Find("Music").GetComponent<AudioSource>().isPlaying)
         {
-            GameObject.Find("Music").GetComponent<AudioSource>().clip = null;
+            GameObject.Find("Music").GetComponent<AudioSource>().Stop();
+            GameObject.Find("Music").GetComponent<AudioSource>().clip = Music;
+            GameObject.Find("Music").GetComponent<AudioSource>().Play();
         }
-        A_AudioCAll.instance.Musicfunction(Music);
+        //A_AudioCAll.instance.Musicfunction(Music);
+
+        FindFirstObjectByType<A_SoundManager>().OptionsPanel = FindFirstObjectByType<OptionMenu>().GetComponent<RectTransform>();
+
     }
 
     void Update()
@@ -70,6 +76,11 @@ public class K_GameManager : MonoBehaviour
 
     void HandleGameplayLogic()
     {
+        if (_waitToIncrease == null)
+        {
+            _waitToIncrease= StartCoroutine(WaitToIncrease(10f));
+        }
+
         if (_wizardBehavior == null) return;
         if (_wizardBehavior.CurrentState == K_WizardBehavior.WizardStates.Weak)
         {
@@ -80,12 +91,6 @@ public class K_GameManager : MonoBehaviour
         {
             AdjustEnemySpeed();
             TrySpawn(SpawnThing(isWeak: false));
-        }
-
-        if ((_currentTime - 30) >= _last30sInterval)
-        {
-            _30sHasPassed = true;
-            IncreaseGameSpeed();
         }
     }
 
@@ -112,16 +117,25 @@ public class K_GameManager : MonoBehaviour
     }
 
 
-    float _last30sInterval;
-    bool _30sHasPassed;
+    float _last10sInterval;
+    bool _10sHasPassed;
 
     private void IncreaseGameSpeed()
     {
-        spawnSpeedMultiplier += 0.5f;
-        // increase enemy and arrow speed too, idk by what interval yet tho
-        _last30sInterval = _currentTime;
+        Debug.Log("speed has increased");
+        spawnSpeedMultiplier += 1f;
 
-        _30sHasPassed = false;
+        _10sHasPassed = false;
+    }
+
+    Coroutine _waitToIncrease;
+    private IEnumerator WaitToIncrease(float time)
+    {
+        yield return new WaitForSeconds(time);
+        IncreaseGameSpeed();
+
+        StopCoroutine(_waitToIncrease);
+        _waitToIncrease = null;
     }
 
     private IEnumerator SpawnThing(bool isWeak)
@@ -149,7 +163,7 @@ public class K_GameManager : MonoBehaviour
         if (isPaused)
         {
             _isPaused = false;
-            FindFirstObjectByType<A_SoundManager>().MoveOptionsPanelOffScreen();
+            FindFirstObjectByType<A_SoundManager>().MoveOptionsPanelOffScreen(OptionMenu.GetComponent<RectTransform>());
             Time.timeScale = 1;
         }
         else
@@ -159,7 +173,7 @@ public class K_GameManager : MonoBehaviour
 
 
             _isPaused = true;
-            FindFirstObjectByType<A_SoundManager>().MoveOptionsPanelOnScreen();
+            FindFirstObjectByType<A_SoundManager>().MoveOptionsPanelOnScreen(OptionMenu.GetComponent<RectTransform>());
             Time.timeScale = 0;
         }
     }

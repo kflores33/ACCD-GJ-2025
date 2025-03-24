@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4542068755221994235, guid: aad29b229727b424188a891d9c187c3e, type: 3}
       propertyPath: m_Name
-      value: OptionsMenu Variant
+      value: OptionsMenuInGame
       objectReference: {fileID: 0}
     - target: {fileID: 4608596800044787584, guid: aad29b229727b424188a891d9c187c3e, type: 3}
       propertyPath: m_LocalScale.x
