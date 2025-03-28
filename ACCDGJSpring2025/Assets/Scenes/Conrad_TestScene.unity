@@ -284,6 +284,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBoundaries
       objectReference: {fileID: 0}
+    - target: {fileID: 2672921340426807326, guid: 4aaf67da797c6dd4382972ead0a5bb0b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208110802645877201, guid: 4aaf67da797c6dd4382972ead0a5bb0b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918836752366138574, guid: 4aaf67da797c6dd4382972ead0a5bb0b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
